@@ -5,7 +5,7 @@
 , python27
 , pythonPackages
 , swig
-, liblapack
+, openblas
 , ipopt
 , hsl
 }:
@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   nativeBuildInputs = [ cmake pkgconfig ];
-  buildInputs = [ python27 swig liblapack ipopt hsl pythonPackages.numpy ];
+  buildInputs = [ python27 swig openblas ipopt hsl pythonPackages.numpy ];
 
   preConfigure = ''
     cmakeFlags+=" -DWITH_PYTHON=ON -DPYTHON_PREFIX=${pythonPrefix}";

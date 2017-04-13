@@ -3,19 +3,18 @@ let
   pkgs = import <nixpkgs> {};
   inherit (pkgs) lib stdenv;
   extra = import ./nix { inherit pkgs; };
-  inputs = with pkgs; with extra; [
+  inputs = (with pkgs; [
     gtk3
     zlib
     pkgconfig
     libcxx
-    liblapack
-    blas
+    openblas
     gsl_1
     zeromq4
     gfortran.cc.out
-
+  ]) ++ (with extra; [
     casadi
-  ];
+  ]);
   libPath = lib.makeLibraryPath inputs;
   stackExtraArgs = lib.concatMap (pkg: [
     ''--extra-lib-dirs=${lib.getLib pkg}/lib''

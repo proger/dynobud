@@ -58,6 +58,6 @@ flags:
     examples: true
 
 nix:
-  enable: false
+  enable: true
   pure: false
   shell-file: shell.nix
