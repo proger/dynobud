@@ -2,7 +2,8 @@
 
 resolver: lts-8.5
 
-compiler-check: newer-minor
+#compiler-check: newer-minor
+system-ghc: false
 
 # Local packages, usually specified by relative directory name
 packages:
@@ -55,3 +56,19 @@ extra-deps: [ # casadi-bindings-3.1.0.22
 flags:
   dynobud:
     examples: true
+
+nix:
+  enable: true
+  pure: false
+  packages:
+    - gtk3
+    - zlib
+    - casadi
+    - pkgconfig
+    - libcxx
+    - liblapack
+    - blas
+    - gsl_1
+    - zeromq4
+    - gfortran.cc.out
+
