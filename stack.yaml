@@ -58,17 +58,6 @@ flags:
     examples: true
 
 nix:
-  enable: true
+  enable: false
   pure: false
-  packages:
-    - gtk3
-    - zlib
-    - casadi
-    - pkgconfig
-    - libcxx
-    - liblapack
-    - blas
-    - gsl_1
-    - zeromq4
-    - gfortran.cc.out
-
+  shell-file: shell.nix
